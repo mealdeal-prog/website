@@ -20,15 +20,34 @@
         a, button, [role="button"], input[type="submit"], input[type="button"] {
             cursor: pointer !important;
         }
+        /* Fix button alignment and rounding */
+        .btn-pill {
+            border-radius: 9999px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            line-height: 1 !important;
+        }
         .lang-switch.active {
             font-weight: bold;
             text-decoration: underline;
         }
-        #mobile-menu {
+        #mobile-menu-overlay.hidden {
             display: none;
         }
-        #mobile-menu.active {
-            display: block;
+        
+        /* Restore Portfolio Hover Effects */
+        .group:hover .group-hover\:opacity-100 {
+            opacity: 1 !important;
+        }
+        .group:hover .group-hover\:scale-105 {
+            transform: scale(1.05) !important;
+        }
+        .group:hover .group-hover\:translate-y-0 {
+            transform: translateY(0) !important;
+        }
+        .group:hover .group-hover\:scale-x-100 {
+            transform: scaleX(1) !important;
         }
     </style>
 </head>
@@ -92,7 +111,7 @@
                         <p class="text-xl md:text-2xl font-serif italic text-muted-foreground animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200" data-t="hero.tagline">Food for mindful moments</p>
                     </div>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
-                        <button onclick="scrollToSection('contact')" class="h-10 rounded-md px-6 bg-primary hover:bg-olive text-white py-6 text-lg rounded-full group transition-all flex items-center justify-center">
+                        <button onclick="scrollToSection('contact')" class="btn-pill px-8 py-4 bg-primary hover:bg-olive text-white text-lg group transition-all">
                             <span data-t="hero.cta">Susisiekite</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </button>
@@ -115,7 +134,7 @@
                         <p class="text-xl md:text-2xl font-bold text-foreground" data-t="about.subtitle">Augalinis maistas retritams, stovykloms, vestuvėms ir kitiems renginiams.</p>
                         <p class="text-lg md:text-xl text-foreground/80 leading-relaxed font-sans" data-t="about.text">Mealdeal – tai augalinio maisto projektas, gimęs iš aistros kūrybai, estetikai, kokybei ir sąmoningam vartojimui. Mes kuriame skonius, kurie ne tik maitina kūną, bet ir džiugina sielą.</p>
                         <div class="pt-4">
-                            <button onclick="scrollToSection('contact')" class="h-9 px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-colors" data-t="hero.cta">Susisiekite</button>
+                            <button onclick="scrollToSection('contact')" class="btn-pill px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-colors" data-t="hero.cta">Susisiekite</button>
                         </div>
                     </div>
                     <div class="relative">
@@ -165,7 +184,7 @@
                     </div>
                 </div>
                 <div class="mt-16 text-center">
-                    <button onclick="scrollToSection('contact')" class="h-10 rounded-full px-8 py-6 bg-terracotta hover:bg-terracotta/90 text-white flex items-center justify-center mx-auto" data-t="hero.cta">Susisiekite</button>
+                    <button onclick="scrollToSection('contact')" class="btn-pill px-8 py-4 bg-terracotta hover:bg-terracotta/90 text-white text-lg mx-auto" data-t="hero.cta">Susisiekite</button>
                 </div>
             </div>
         </section>
@@ -185,7 +204,7 @@
                         <div class="h-1 w-20 bg-primary"></div>
                         <p class="text-lg md:text-xl text-foreground/80 leading-relaxed font-sans italic border-l-4 border-terracotta pl-6" data-t="konstantin.text">Esu Konstantinas – Mealdeal įkūrėjas ir ilgametę patirtį turintis augalinės virtuvės šefas. Augalinė virtuvė man - ne mada, o sąmoningas pasirinkimas ir kūrybinė laisvė. Tikiu, kad augalinė virtuvė gali būti ne tik tvari, bet ir gurmaniška bei estetiška. Kiekvienas mano patiekalas gimsta iš patirties, nuolatinio tobulėjimo ir meilės procesui.</p>
                         <div class="pt-4">
-                            <button onclick="scrollToSection('contact')" class="h-9 px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-colors" data-t="hero.cta">Susisiekite</button>
+                            <button onclick="scrollToSection('contact')" class="btn-pill px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-colors" data-t="hero.cta">Susisiekite</button>
                         </div>
                     </div>
                 </div>
@@ -268,7 +287,7 @@
                     </div>
                 </div>
                 <div class="mt-16 text-center">
-                    <button onclick="scrollToSection('contact')" class="h-10 rounded-full px-8 py-6 bg-primary hover:bg-olive text-white flex items-center justify-center mx-auto" data-t="hero.cta">Susisiekite</button>
+                    <button onclick="scrollToSection('contact')" class="btn-pill px-8 py-4 bg-primary hover:bg-olive text-white text-lg mx-auto" data-t="hero.cta">Susisiekite</button>
                 </div>
             </div>
         </section>
@@ -317,7 +336,7 @@
                     </div>
                 </div>
                 <div class="mt-20 text-center">
-                    <button onclick="scrollToSection('contact')" class="h-10 rounded-full px-8 py-6 bg-white text-primary hover:bg-beige transition-all duration-300 font-bold tracking-wide shadow-lg hover:shadow-xl flex items-center justify-center mx-auto" data-t="hero.cta">Susisiekite</button>
+                    <button onclick="scrollToSection('contact')" class="btn-pill px-8 py-4 bg-white text-primary hover:bg-beige transition-all duration-300 font-bold tracking-wide shadow-lg hover:shadow-xl mx-auto" data-t="hero.cta">Susisiekite</button>
                 </div>
             </div>
         </section>
@@ -336,7 +355,7 @@
                             <p class="text-muted-foreground text-sm md:text-lg max-w-lg mx-auto leading-relaxed italic mb-8" data-t="pricing.smallerGroup">Jei jūsų grupė mažesnė – parašykite, aptarsime galimybes</p>
                         </div>
                         <div class="pt-4">
-                            <button onclick="scrollToSection('contact')" class="h-10 rounded-full px-8 py-6 bg-primary text-white hover:bg-primary/90 transition-all duration-300 font-bold tracking-wide shadow-lg hover:shadow-xl flex items-center justify-center mx-auto" data-t="hero.cta">Susisiekite</button>
+                            <button onclick="scrollToSection('contact')" class="btn-pill px-8 py-4 bg-primary text-white hover:bg-primary/90 transition-all duration-300 font-bold tracking-wide shadow-lg hover:shadow-xl mx-auto" data-t="hero.cta">Susisiekite</button>
                         </div>
                     </div>
                 </div>
@@ -397,7 +416,7 @@
                                     <textarea id="message" name="message" required class="border-input min-h-[100px] w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent resize-none"></textarea>
                                 </div>
 
-                                <button type="submit" class="w-full bg-primary hover:bg-olive text-white rounded-full py-6 text-lg font-bold uppercase tracking-widest transition-all">
+                                <button type="submit" class="btn-pill w-full bg-primary hover:bg-olive text-white py-6 text-lg font-bold uppercase tracking-widest transition-all">
                                     <span data-t="contact.submit">Siųsti</span>
                                 </button>
                             </form>
