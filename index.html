@@ -31,6 +31,10 @@
             height: 3.5rem !important;
             line-height: 1 !important;
         }
+        /* Fix animation flicker */
+        .animate-in {
+            animation-fill-mode: backwards !important;
+        }
         .lang-switch.active {
             font-weight: bold;
             text-decoration: underline;
@@ -356,14 +360,14 @@
                             <div class="space-y-6">
                                 <h2 class="text-4xl font-serif font-bold text-primary italic" data-t="contact.title">Susisiekime</h2>
                                 <div class="h-1 w-20 bg-terracotta"></div>
-                                <p class="text-muted-foreground leading-relaxed">Pasidalinkite savo idėjomis ir mes kartu sukursime nepamirštamą patirtį.</p>
-                            </div>
-                            <div class="space-y-4 pt-12">
-                                <p class="text-sm font-bold uppercase tracking-widest text-primary">Email</p>
+                                <p class="text-muted-foreground leading-relaxed" data-t="contact.intro">Pasidalinkite savo idėjomis ir mes kartu sukursime nepamirštamą patirtį.</p>
+                                </div>
+                                <div class="space-y-4 pt-12">
+                                <p class="text-sm font-bold uppercase tracking-widest text-primary" data-t="contact.email_label">Email</p>
                                 <p class="text-lg">getmealdeal@gmail.com</p>
-                                <p class="text-sm font-bold uppercase tracking-widest text-primary pt-4">Vieta</p>
-                                <p class="text-lg">Dirbame visoje Lietuvoje</p>
-                            </div>
+                                <p class="text-sm font-bold uppercase tracking-widest text-primary pt-4" data-t="contact.location_label">Vieta</p>
+                                <p class="text-lg" data-t="contact.location_text">Dirbame visoje Lietuvoje</p>
+                                </div>
                         </div>
                         <div class="p-12">
                             <div id="contact-success" class="hidden h-full flex flex-col items-center justify-center text-center space-y-4 animate-in fade-in zoom-in">
