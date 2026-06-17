@@ -561,14 +561,15 @@
         </section>
 
         <!-- Contact Section -->
+            <!-- Contact Section -->
         <section id="contact" class="py-24">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-border/50">
-                    <div class="grid md:grid-cols-2">
-                        <div class="p-12 bg-beige/30 flex flex-col justify-between">
+                <div class="contact-card">
+                    <div class="contact-grid">
+                        <div class="contact-info-panel">
                             <div class="space-y-6">
-                                <h2 class="text-4xl font-serif font-bold text-primary italic" data-t="contact.title">Susisiekime</h2>
-                                <div class="h-1 w-20 bg-terracotta"></div>
+                                <h2 class="contact-title" data-t="contact.title">Susisiekime</h2>
+                                <div class="contact-divider"></div>
                                 <p class="text-muted-foreground leading-relaxed" data-t="contact.intro">Pasidalinkite savo idėjomis ir mes kartu sukursime nepamirštamą patirtį.</p>
                                 </div>
                                 <div class="space-y-4 pt-12">
@@ -578,8 +579,8 @@
                                 <p class="text-lg" data-t="contact.location_text">Dirbame visoje Lietuvoje</p>
                                 </div>
                         </div>
-                        <div class="p-12">
-                            <div id="contact-success" class="hidden h-full flex flex-col items-center justify-center text-center space-y-4 animate-in fade-in zoom-in">
+                        <div class="contact-form-panel">
+                            <div id="contact-success" class="hidden success-message animate-in fade-in zoom-in">
                                 <div>
                                     <h3 class="text-2xl font-serif font-bold text-primary mb-2">Ačiū! / Thank you!</h3>
                                     <p class="text-muted-foreground">Susisieksime artimiausiu metu.</p>
@@ -588,33 +589,33 @@
                             <form id="contact-form" class="space-y-6">
                                 <div id="contact-error" class="hidden p-3 bg-destructive/10 text-destructive text-sm rounded-lg border border-destructive/20"></div>
                                 
-                                <div class="space-y-2">
-                                    <label for="name" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.name">Vardas</label>
-                                    <input type="text" id="name" name="name" required class="border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent">
+                                <div class="form-group">
+                                    <label for="name" class="form-label" data-t="contact.name">Vardas</label>
+                                    <input type="text" id="name" name="name" required class="form-input">
                                 </div>
 
-                                <div class="space-y-2">
-                                    <label for="email" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.email">El. paštas</label>
-                                    <input type="email" id="email" name="email" required class="border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent">
+                                <div class="form-group">
+                                    <label for="email" class="form-label" data-t="contact.email">El. paštas</label>
+                                    <input type="email" id="email" name="email" required class="form-input">
                                 </div>
 
-                                <div class="grid grid-cols-2 gap-6">
-                                    <div class="space-y-2">
-                                        <label for="type" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.eventType">Renginio tipas</label>
-                                        <input type="text" id="type" name="type" class="border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent">
+                                <div class="form-grid-2">
+                                    <div class="form-group">
+                                        <label for="type" class="form-label" data-t="contact.eventType">Renginio tipas</label>
+                                        <input type="text" id="type" name="type" class="form-input">
                                     </div>
-                                    <div class="space-y-2">
-                                        <label for="date" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.date">Data</label>
-                                        <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" class="border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent">
+                                    <div class="form-group">
+                                        <label for="date" class="form-label" data-t="contact.date">Data</label>
+                                        <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" class="form-input">
                                     </div>
                                 </div>
 
-                                <div class="space-y-2">
-                                    <label for="message" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.message">Žinutė</label>
-                                    <textarea id="message" name="message" required class="border-input min-h-[100px] w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent resize-none"></textarea>
+                                <div class="form-group">
+                                    <label for="message" class="form-label" data-t="contact.message">Žinutė</label>
+                                    <textarea id="message" name="message" required class="form-input" style="min-height: 100px; resize: none;"></textarea>
                                 </div>
 
-                                <button type="submit" class="btn-pill w-full bg-primary hover:bg-olive text-white text-lg font-bold uppercase tracking-widest transition-all">
+                                <button type="submit" class="submit-btn">
                                     <span data-t="contact.submit">Siųsti</span>
                                 </button>
                             </form>
@@ -622,8 +623,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </section></main>
 
     <!-- Footer -->
     <footer class="site-footer">
