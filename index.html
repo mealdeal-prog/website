@@ -449,23 +449,40 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 bg-white border-t border-border">
+    <footer class="py-16 bg-white border-t border-border">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
-                <!-- Social Icons Left -->
-                <div class="flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-12">
-                    <a href="https://www.instagram.com/mealdeal_lt?igsh=OHBqaDd3amttb24%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="flex items-center group transition-all">
-                        <img src="images/instagram.svg" alt="Instagram" class="w-5 h-5 transition-transform group-hover:scale-110">
-                        <span class="ml-3 text-sm font-bold uppercase tracking-widest text-primary group-hover:text-terracotta transition-colors leading-none" data-t="footer.instagram">Mūsų Instagram</span>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                <!-- Social Links -->
+                <div class="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/mealdeal_lt?igsh=OHBqaDd3amttb24%3D&utm_source=qr" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="flex items-center group space-x-3 transition-all duration-300">
+                        <div class="flex-shrink-0 w-6 h-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                            <img src="images/instagram.svg" alt="" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-primary group-hover:text-terracotta transition-colors" data-t="footer.instagram">
+                            Mūsų Instagram
+                        </span>
                     </a>
-                    <a href="https://wa.me/37062336701" target="_blank" rel="noopener noreferrer" class="flex items-center group transition-all">
-                        <img src="images/whatsapp.svg" alt="WhatsApp" class="w-5 h-5 transition-transform group-hover:scale-110">
-                        <span class="ml-3 text-sm font-bold uppercase tracking-widest text-primary group-hover:text-terracotta transition-colors leading-none" data-t="footer.whatsapp">Mūsų WhatsApp</span>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/37062336701" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="flex items-center group space-x-3 transition-all duration-300">
+                        <div class="flex-shrink-0 w-6 h-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                            <img src="images/whatsapp.svg" alt="" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-primary group-hover:text-terracotta transition-colors" data-t="footer.whatsapp">
+                            Mūsų WhatsApp
+                        </span>
                     </a>
                 </div>
 
-                <!-- Copyright Right -->
-                <div class="text-sm text-muted-foreground font-medium uppercase tracking-widest text-center md:text-right">
+                <!-- Copyright -->
+                <div class="text-[10px] md:text-xs text-muted-foreground font-medium uppercase tracking-[0.2em] text-center md:text-right opacity-70">
                     © <span id="current-year">2025</span> MEALDEAL. <span data-t="footer.rights">Visos teisės saugomos.</span>
                 </div>
             </div>
