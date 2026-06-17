@@ -237,12 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth < 1024) {
             entries.forEach(entry => {
                 const overlay = entry.target.querySelector('div[class*="absolute"]');
+                if (!overlay) return; // Guard clause
+
                 if (entry.isIntersecting) {
                     overlay.classList.remove('opacity-0');
                     overlay.classList.add('opacity-100');
                     const h3 = overlay.querySelector('h3');
-                    h3.classList.remove('translate-y-8');
-                    h3.classList.add('translate-y-0');
+                    if (h3) {
+                        h3.classList.remove('translate-y-8');
+                        h3.classList.add('translate-y-0');
+                    }
                     const line = overlay.querySelector('div[class*="scale-x-0"]');
                     if (line) {
                         line.classList.remove('scale-x-0');
@@ -252,8 +256,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     overlay.classList.add('opacity-0');
                     overlay.classList.remove('opacity-100');
                     const h3 = overlay.querySelector('h3');
-                    h3.classList.add('translate-y-8');
-                    h3.classList.remove('translate-y-0');
+                    if (h3) {
+                        h3.classList.add('translate-y-8');
+                        h3.classList.remove('translate-y-0');
+                    }
                     const line = overlay.querySelector('div[class*="scale-x-100"]');
                     if (line) {
                         line.classList.add('scale-x-0');
