@@ -162,6 +162,108 @@
                 margin-top: 0;
             }
         }
+
+        /* Contact Form Plain CSS */
+        .contact-card {
+            max-width: 896px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .contact-info-panel {
+            padding: 48px;
+            background-color: rgba(245, 245, 220, 0.3); /* beige/30 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .contact-form-panel {
+            padding: 48px;
+        }
+        .contact-title {
+            font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #556B2F;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .contact-divider {
+            height: 4px;
+            width: 80px;
+            background-color: #CD5C5C;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: #6b7280;
+        }
+        .form-input {
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid #e5e7eb;
+            background: transparent;
+            padding: 8px 0;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            outline: none;
+            border-radius: 0;
+        }
+        .form-input:focus {
+            border-bottom-color: #556B2F;
+        }
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #556B2F;
+            color: white;
+            padding: 16px;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 12px;
+        }
+        .submit-btn:hover {
+            background-color: #6B8E23; /* olive-like */
+        }
+        .success-message {
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
     </style>
 </head>
 
