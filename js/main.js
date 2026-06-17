@@ -121,8 +121,11 @@ function setLanguage(lang) {
         el.classList.remove('active');
     });
     
-    document.getElementById(`lang-${lang.toLowerCase()}`).classList.add('active');
-    document.getElementById(`mobile-lang-${lang.toLowerCase()}`).classList.add('active');
+    const desktopLangEl = document.getElementById(`lang-${lang.toLowerCase()}`);
+    if (desktopLangEl) desktopLangEl.classList.add('active');
+    
+    const mobileLangEl = document.getElementById(`mobile-lang-${lang.toLowerCase()}`);
+    if (mobileLangEl) mobileLangEl.classList.add('active');
 }
 
 function scrollToSection(id) {
