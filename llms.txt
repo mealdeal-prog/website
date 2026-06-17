@@ -1,0 +1,22 @@
+# Mealdeal
+
+Augalinio maisto projektas retritams, stovykloms, vestuvėms ir kitiems renginiams Lietuvoje.
+
+## Overview
+Mealdeal teikia vegetariško, veganiško ir žaliavalgiško (raw) maisto catering'o paslaugas. Šefas Konstantinas kuria estetiškus ir sąmoningus skonius, maitinančius tiek kūną, tiek sielą.
+
+## Services
+- **Retritai**: Maitinimas dvasinėms ir sveikatingumo praktikoms.
+- **Stovyklos**: Maistingas augalinis maistas aktyviam poilsiui.
+- **Vestuvės**: Estetiškas ir šventiškas augalinis meniu.
+- **Verslo renginiai**: Profesionalus cateringas konferencijoms ir susitikimams.
+
+## Contact Information
+- **Email**: getmealdeal@gmail.com
+- **Website**: https://meal-deal.eu
+- **Instagram**: @mealdeal_lt
+- **Location**: Dirbame visoje Lietuvoje.
+
+## Pricing
+- Nuo 25€ asmeniui.
+- Minimalus užsakymas: 10 asmenų.

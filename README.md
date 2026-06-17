@@ -1,21 +1,25 @@
-# MealDeal Website - Local Version
+# Mealdeal — Растительная еда для мероприятий
 
-This folder contains a fully functional local copy of the MealDeal website.
+Этот проект является визитной карточкой и портфолио для «Mealdeal». Сайт предназначен для презентации услуг кейтеринга растительной пищи (вегетарианской, веганской, сыроедческой) в Литве.
 
-## How the Contact Form Works
+## 🏗️ Структура проекта
 
-The contact form on this site is pre-configured to work **without a backend server**.
+Сайт построен на чистом HTML, CSS (стили Tailwind) и JavaScript, что обеспечивает высокую скорость работы и простоту поддержки.
 
-1.  **Service**: It uses [Web3Forms](https://web3forms.com/), a service that allows static sites to receive form submissions.
-2.  **Logic**: When a user fills out the "Contact" form and clicks submit, the data is sent directly to the Web3Forms API.
-3.  **Delivery**: Web3Forms then automatically forwards the message to the registered email: **getmealdeal@gmail.com**.
-4.  **Local Support**: The form works perfectly while running the site locally (e.g., via `localhost:8000`), provided you have an internet connection to reach the Web3Forms API.
+- `index.html` — Основной файл сайта с SEO-оптимизацией и контентом на литовском и английском языках.
+- `css/style.css` — Все стили оформления.
+- `js/main.js` — Логика сайта: переключение языков, плавный скролл, отправка формы через Web3Forms.
+- `images/` — Визуальный контент (логотипы, фотографии, иконки услуг).
+- `robots.txt` и `sitemap.xml` — Файлы для поисковых систем (SEO).
+- `llms.txt` — Информация для ИИ-моделей (ChatGPT, Claude и др.).
 
-## Running Locally
+## ✨ Основные функции
 
-To avoid CORS security restrictions, run a local server in this directory:
+- **Два языка**: Полная поддержка литовского и английского языков.
+- **SEO-оптимизация**: Настроенные мета-теги, описания и микроразметка JSON-LD для лучшей видимости в Google.
+- **Контактная форма**: Интеграция с Web3Forms (письма приходят на `getmealdeal@gmail.com`).
+- **Адаптивность**: Сайт полностью корректно отображается на мобильных устройствах, планшетах и ПК.
 
-```bash
-python3 -m http.server 8000
-```
-Then visit: **http://localhost:8000**
+## 🚀 SEO и ИИ-готовность
+
+Сайт подготовлен не только для традиционных поисковиков, но и для ИИ-инструментов, чтобы клиенты могли легко находить ваши услуги через чат-ботов.
