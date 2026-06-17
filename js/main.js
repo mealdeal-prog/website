@@ -93,6 +93,8 @@ const translations = {
         "contact.message": "Message",
         "contact.submit": "Send",
         "footer.rights": "All rights reserved.",
+        "footer.instagram": "Our Instagram",
+        "footer.whatsapp": "Our WhatsApp",
         "pricing.perPerson": "From 25€ / per person",
         "pricing.minOrder": "Minimum order: 10 people",
         "pricing.smallerGroup": "If your group is smaller – write, we'll discuss options"
@@ -274,4 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
     portfolioItems.forEach(item => portfolioObserver.observe(item));
 });
 rver.observe(item));
+});
+;
 });
