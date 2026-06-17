@@ -56,6 +56,12 @@
         .group:hover .group-hover\:scale-x-100 {
             transform: scaleX(1) !important;
         }
+        
+        /* Hero background - make it lighter */
+        #hero-bg {
+            opacity: 0.08 !important;
+            filter: brightness(1.5) !important;
+        }
     </style>
 </head>
 
@@ -108,8 +114,7 @@
         <!-- Hero Section -->
         <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             <div class="absolute inset-0 z-0">
-                <img src="images/hero1.jpg" alt="Hero background" class="w-full h-full object-cover opacity-40">
-                <div class="absolute inset-0 bg-gradient-to-b from-background/60 to-background/80"></div>
+                <img src="images/hero1.jpg" alt="Hero background" class="w-full h-full object-cover" id="hero-bg"></div>
                 <div class="absolute top-1/4 -left-20 w-96 h-96 bg-soft-green/10 rounded-full blur-3xl animate-pulse"></div>
                 <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-terracotta/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
             </div>
