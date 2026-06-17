@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mealdeal – augalinis maistas renginiams, retritams ir vestuvėms</title>
+    <meta name="description" content="Aukščiausios kokybės augalinis maistas jūsų šventei. Vegetariškas, veganiškas ir žaliavalgiškas cateringas retritams, stovykloms, vestuvėms bei verslo renginiams visoje Lietuvoje.">
+    <meta name="keywords" content="augalinis maistas, cateringas, veganiškas maistas, vegetariškas maistas, retritai, vestuvių maistas, stovyklos, Mealdeal, maistas renginiams">
+    <meta property="og:title" content="Mealdeal – augalinis maistas renginiams ir retritams" />
+    <meta property="og:description" content="Aukščiausios kokybės augalinis maistas: vegetariškas, veganiškas ir žaliavalgiškas cateringas visoje Lietuvoje." />
+    <meta property="og:image" content="images/og-image.webp" />
+    <meta property="og:url" content="https://meal-deal.eu" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="images/og-image.webp" />
+    <meta name="theme-color" content="#556B2F" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CateringService",
+      "name": "Mealdeal",
+      "image": "https://meal-deal.eu/images/og-image.webp",
+      "description": "Augalinio maisto projektas retritams, stovykloms, vestuvėms ir kitiems renginiams Lietuvoje.",
+      "url": "https://meal-deal.eu",
+      "email": "getmealdeal@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "LT"
+      },
+      "priceRange": "$$",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "25.00",
+        "description": "Nuo 25€ / asmeniui"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        a, button, [role="button"], input[type="submit"], input[type="button"] {
+            cursor: pointer !important;
+        }
+        /* Fix button alignment and rounding */
+        .btn-pill {
+            border-radius: 9999px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            height: 3.5rem !important;
+            line-height: 1 !important;
+        }
+        /* Fix animation flicker */
+        .animate-in {
+            animation-fill-mode: backwards !important;
+        }
+        .lang-switch.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        #mobile-menu-overlay.hidden {
+            display: none;
+        }
+        
+        /* Restore Portfolio Hover Effects */
+        .group:hover .group-hover\:opacity-100 {
+            opacity: 1 !important;
+        }
+        .group:hover .group-hover\:scale-105 {
+            transform: scale(1.05) !important;
+        }
+        .group:hover .group-hover\:translate-y-0 {
+            transform: translateY(0) !important;
+        }
+        .group:hover .group-hover\:scale-x-100 {
+            transform: scaleX(1) !important;
+        }
+        
+        /* Hero background - make it lighter */
+        #hero-bg {
+            opacity: 0.08 !important;
+            filter: brightness(1.5) !important;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen font-sans selection:bg-primary/20 selection:text-primary bg-background">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-serif font-bold tracking-wider cursor-pointer text-primary" onclick="scrollToSection('hero')">
+                MEALDEAL
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <button onclick="scrollToSection('about')" class="hover:text-primary transition-colors text-sm font-medium uppercase tracking-widest" data-t="nav.about">Apie</button>
+                <button onclick="scrollToSection('approach')" class="hover:text-primary transition-colors text-sm font-medium uppercase tracking-widest" data-t="nav.approach">Metodas</button>
+                <button onclick="scrollToSection('portfolio')" class="hover:text-primary transition-colors text-sm font-medium uppercase tracking-widest" data-t="nav.portfolio">Paslaugos</button>
+                <button onclick="scrollToSection('contact')" class="hover:text-primary transition-colors text-sm font-medium uppercase tracking-widest" data-t="nav.contact">Kontaktai</button>
+                
+                <div class="flex items-center space-x-2 border-l pl-8 border-border">
+                    <button onclick="setLanguage('LT')" id="lang-lt" class="lang-switch active text-sm font-bold transition-colors hover:text-primary">LT</button>
+                    <span class="text-border">|</span>
+                    <button onclick="setLanguage('EN')" id="lang-en" class="lang-switch text-sm font-bold transition-colors hover:text-primary">EN</button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden flex items-center space-x-4">
+                <div class="flex items-center space-x-2 mr-2">
+                    <button onclick="setLanguage('LT')" id="mobile-lang-lt" class="lang-switch active text-xs font-bold transition-colors hover:text-primary">LT</button>
+                    <span class="text-border">|</span>
+                    <button onclick="setLanguage('EN')" id="mobile-lang-en" class="lang-switch text-xs font-bold transition-colors hover:text-primary">EN</button>
+                </div>
+                <button id="menu-toggle" class="text-primary">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x hidden"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-background/95 backdrop-blur-md z-40 md:hidden flex flex-col items-center justify-center space-y-8">
+            <button onclick="scrollToSection('about')" class="text-2xl font-serif font-bold text-primary" data-t="nav.about">Apie</button>
+            <button onclick="scrollToSection('approach')" class="text-2xl font-serif font-bold text-primary" data-t="nav.approach">Metodas</button>
+            <button onclick="scrollToSection('portfolio')" class="text-2xl font-serif font-bold text-primary" data-t="nav.portfolio">Paslaugos</button>
+            <button onclick="scrollToSection('contact')" class="text-2xl font-serif font-bold text-primary" data-t="nav.contact">Kontaktai</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            <div class="absolute inset-0 z-0">
+                <img src="images/hero1.webp" alt="Hero background" class="w-full h-full object-cover" id="hero-bg"></div>
+                <div class="absolute top-1/4 -left-20 w-96 h-96 bg-soft-green/10 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-terracotta/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+            </div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <div class="space-y-6 max-w-4xl mx-auto">
+                    <div class="space-y-2">
+                        <h1 class="text-6xl md:text-8xl font-serif font-bold tracking-tight text-primary animate-in fade-in slide-in-from-bottom-8 duration-1000">MEALDEAL</h1>
+                        <p class="text-xl md:text-2xl font-serif italic text-muted-foreground animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-200" data-t="hero.tagline">Food for mindful moments</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
+                        <button onclick="scrollToSection('contact')" class="btn-pill px-8 bg-primary hover:bg-olive text-white text-lg group transition-all">
+                            <span data-t="hero.cta">Susisiekite</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                        <p class="text-sm font-medium uppercase tracking-widest text-muted-foreground">Vegetarian • Vegan • Raw</p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <div class="w-px h-16 bg-gradient-to-b from-primary/50 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-beige/30">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8">
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-primary" data-t="about.title">Apie Mealdeal</h2>
+                        <div class="h-1 w-20 bg-terracotta"></div>
+                        <p class="text-xl md:text-2xl font-bold text-foreground" data-t="about.subtitle">Augalinis maistas retritams, stovykloms, vestuvėms ir kitiems renginiams.</p>
+                        <p class="text-lg md:text-xl text-foreground/80 leading-relaxed font-sans" data-t="about.text">Mealdeal – tai augalinio maisto projektas, gimęs iš aistros kūrybai, estetikai, kokybei ir sąmoningam vartojimui. Mes kuriame skonius, kurie ne tik maitina kūną, bet ir džiugina sielą.</p>
+                        <div class="pt-4">
+                            <button onclick="scrollToSection('contact')" class="btn-pill px-6 border border-primary text-primary hover:bg-primary hover:text-white transition-colors" data-t="hero.cta">Susisiekite</button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-muted">
+                            <div class="absolute inset-0 bg-olive/10 flex items-center justify-center">
+                                <span class="text-primary/20 font-serif text-8xl italic">MD</span>
+                            </div>
+                            <img src="images/about.webp" alt="Fresh plant-based ingredients" class="w-full h-full object-cover mix-blend-multiply opacity-80">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-terracotta/10 rounded-full -z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach Section -->
+        <section id="approach" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-primary italic" data-t="approach.title">Mūsų požiūris</h2>
+                    <p class="text-muted-foreground uppercase tracking-widest text-sm font-semibold">Mindful plant-based cuisine</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <!-- Feature 1 -->
+                    <div class="group p-8 rounded-2xl bg-white border border-border/50 hover:border-primary/20 hover:shadow-xl transition-all duration-300">
+                        <div class="mb-6 bg-muted/50 w-20 h-20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf text-primary"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold mb-4 text-primary" data-t="approach.feature1.title">Augalinė kilmė</h3>
+                        <p class="text-muted-foreground leading-relaxed" data-t="approach.feature1.desc">Tik geriausi augaliniai receptai – vegetariškas, veganiškas ir žaliavalgiškas maistas jūsų renginiams.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="group p-8 rounded-2xl bg-white border border-border/50 hover:border-primary/20 hover:shadow-xl transition-all duration-300">
+                        <div class="mb-6 bg-muted/50 w-20 h-20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart text-terracotta"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold mb-4 text-primary" data-t="approach.feature2.title">Sąmoningumas</h3>
+                        <p class="text-muted-foreground leading-relaxed" data-t="approach.feature2.desc">Dėmesys procesui - kiekvienas ingredientas parinktas atsakingai, kiekvienas patiekalas apgalvotas iki detalių ir pagamintas su meile.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="group p-8 rounded-2xl bg-white border border-border/50 hover:border-primary/20 hover:shadow-xl transition-all duration-300">
+                        <div class="mb-6 bg-muted/50 w-20 h-20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye text-soft-green"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold mb-4 text-primary" data-t="approach.feature3.title">Estetika</h3>
+                        <p class="text-muted-foreground leading-relaxed" data-t="approach.feature3.desc">Maistas, kuris džiugina ne tik skonio receptorius, bet ir garantuoja vizualinį malonumą.</p>
+                    </div>
+                </div>
+                <div class="mt-16 text-center">
+                    <button onclick="scrollToSection('contact')" class="btn-pill px-8 bg-terracotta hover:bg-terracotta/90 text-white text-lg mx-auto" data-t="hero.cta">Susisiekite</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konstantin Section -->
+        <section class="py-24 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1 relative">
+                        <div class="aspect-square rounded-full overflow-hidden border-8 border-beige">
+                            <img src="images/konstantin.webp" alt="Konstantin - Chef" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-soft-green rounded-full -z-10 animate-bounce" style="animation-duration: 10s"></div>
+                    </div>
+                    <div class="order-1 md:order-2 space-y-8">
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-primary italic" data-t="konstantin.title">Apie Mane</h2>
+                        <div class="h-1 w-20 bg-primary"></div>
+                        <p class="text-lg md:text-xl text-foreground/80 leading-relaxed font-sans italic border-l-4 border-terracotta pl-6" data-t="konstantin.text">Esu Konstantinas – Mealdeal įkūrėjas ir ilgametę patirtį turintis augalinės virtuvės šefas. Augalinė virtuvė man - ne mada, o sąmoningas pasirinkimas ir kūrybinė laisvė. Tikiu, kad augalinė virtuvė gali būti ne tik tvari, bet ir gurmaniška bei estetiška. Kiekvienas mano patiekalas gimsta iš patirties, nuolatinio tobulėjimo ir meilės procesui.</p>
+                        <div class="pt-4">
+                            <button onclick="scrollToSection('contact')" class="btn-pill px-6 border border-primary text-primary hover:bg-primary hover:text-white transition-colors" data-t="hero.cta">Susisiekite</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 bg-beige/10">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-primary italic" data-t="portfolio.title">Maisto potyriai</h2>
+                    <div class="h-1 w-20 bg-terracotta mx-auto"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Portfolio Item 1 -->
+                    <div class="group flex flex-col items-center text-center">
+                        <div class="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg mb-6">
+                            <img src="images/RETRITAI.webp" alt="RETRITAI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary italic" data-t="portfolio.card1">RETRITAI</h3>
+                        <div class="w-12 h-0.5 bg-terracotta/40 mt-3 transition-transform duration-500 transform scale-x-50 group-hover:scale-x-100"></div>
+                    </div>
+                    <!-- Portfolio Item 2 -->
+                    <div class="group flex flex-col items-center text-center">
+                        <div class="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg mb-6">
+                            <img src="images/STOVYKLOS.webp" alt="STOVYKLOS" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary italic" data-t="portfolio.card2">STOVYKLOS</h3>
+                        <div class="w-12 h-0.5 bg-terracotta/40 mt-3 transition-transform duration-500 transform scale-x-50 group-hover:scale-x-100"></div>
+                    </div>
+                    <!-- Portfolio Item 3 -->
+                    <div class="group flex flex-col items-center text-center">
+                        <div class="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg mb-6">
+                            <img src="images/VESTUVES.webp" alt="VESTUVES" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary italic" data-t="portfolio.card3">VESTUVĖS</h3>
+                        <div class="w-12 h-0.5 bg-terracotta/40 mt-3 transition-transform duration-500 transform scale-x-50 group-hover:scale-x-100"></div>
+                    </div>
+                    <!-- Portfolio Item 4 -->
+                    <div class="group flex flex-col items-center text-center">
+                        <div class="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg mb-6">
+                            <img src="images/VERSLO-RENGINIAI.webp" alt="VERSLO RENGINIAI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary italic" data-t="portfolio.card4">VERSLO RENGINIAI</h3>
+                        <div class="w-12 h-0.5 bg-terracotta/40 mt-3 transition-transform duration-500 transform scale-x-50 group-hover:scale-x-100"></div>
+                    </div>
+                    <!-- Portfolio Item 5 -->
+                    <div class="group flex flex-col items-center text-center">
+                        <div class="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg mb-6">
+                            <img src="images/GIMTADIENIS.webp" alt="GIMTADIENIAI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary italic" data-t="portfolio.card5">GIMTADIENIAI</h3>
+                        <div class="w-12 h-0.5 bg-terracotta/40 mt-3 transition-transform duration-500 transform scale-x-50 group-hover:scale-x-100"></div>
+                    </div>
+                    <!-- Portfolio Item 6 -->
+                    <div class="group flex flex-col items-center text-center">
+                        <div class="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-lg mb-6">
+                            <img src="images/portfolio6.webp" alt="ŠVENTĖS" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-primary italic" data-t="portfolio.card6">ŠVENTĖS</h3>
+                        <div class="w-12 h-0.5 bg-terracotta/40 mt-3 transition-transform duration-500 transform scale-x-50 group-hover:scale-x-100"></div>
+                    </div>
+                </div>
+                <div class="mt-16 text-center">
+                    <button onclick="scrollToSection('contact')" class="btn-pill px-8 bg-primary hover:bg-olive text-white text-lg mx-auto" data-t="hero.cta">Susisiekite</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration Section -->
+        <section id="collaboration" class="py-24 bg-primary text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-20 text-center italic" data-t="collab.title">Kaip tai veikia</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
+                    <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-px bg-white/20 -z-0"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="relative z-10 text-center flex flex-col items-center group">
+                        <div class="w-24 h-24 rounded-full bg-white text-primary flex items-center justify-center border-8 border-primary shadow-2xl mb-8 transition-transform duration-300 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-line"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
+                        </div>
+                        <div class="space-y-4 max-w-xs">
+                            <h3 class="text-xl font-bold uppercase tracking-widest" data-t="collab.step1.title">Parašykite</h3>
+                            <div class="h-0.5 w-12 bg-white/30 mx-auto"></div>
+                            <p class="text-white/80 font-sans leading-relaxed text-sm md:text-base" data-t="collab.step1.desc">Papasakokite apie savo renginį ir poreikius</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative z-10 text-center flex flex-col items-center group">
+                        <div class="w-24 h-24 rounded-full bg-white text-primary flex items-center justify-center border-8 border-primary shadow-2xl mb-8 transition-transform duration-300 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <div class="space-y-4 max-w-xs">
+                            <h3 class="text-xl font-bold uppercase tracking-widest" data-t="collab.step2.title">Aptarkime detales</h3>
+                            <div class="h-0.5 w-12 bg-white/30 mx-auto"></div>
+                            <p class="text-white/80 font-sans leading-relaxed text-sm md:text-base" data-t="collab.step2.desc">Kartu rasime geriausią sprendimą jūsų renginiui</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative z-10 text-center flex flex-col items-center group">
+                        <div class="w-24 h-24 rounded-full bg-white text-primary flex items-center justify-center border-8 border-primary shadow-2xl mb-8 transition-transform duration-300 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+                        </div>
+                        <div class="space-y-4 max-w-xs">
+                            <h3 class="text-xl font-bold uppercase tracking-widest" data-t="collab.step3.title">MES PASIRŪPINSIME</h3>
+                            <div class="h-0.5 w-12 bg-white/30 mx-auto"></div>
+                            <p class="text-white/80 font-sans leading-relaxed text-sm md:text-base" data-t="collab.step3.desc">Pasirūpinsime, kad maistas jūsų renginyje būtų įsimintinas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-20 text-center">
+                    <button onclick="scrollToSection('contact')" class="btn-pill px-8 bg-white text-primary hover:bg-beige transition-all duration-300 font-bold tracking-wide shadow-lg hover:shadow-xl mx-auto" data-t="hero.cta">Susisiekite</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 bg-background">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto bg-white border border-border p-12 md:p-16 text-center rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-4xl md:text-5xl font-serif font-bold text-primary italic leading-tight" data-t="pricing.perPerson">Nuo 25€ / asmeniui</h2>
+                        </div>
+                        <div class="w-12 h-1 bg-accent/40 mx-auto rounded-full"></div>
+                        <div class="space-y-4">
+                            <p class="text-xl md:text-2xl font-sans font-medium text-foreground" data-t="pricing.minOrder">Minimalus užsakymas: 10 žmonių</p>
+                            <p class="text-muted-foreground text-sm md:text-lg max-w-lg mx-auto leading-relaxed italic mb-8" data-t="pricing.smallerGroup">Jei jūsų grupė mažesnė – parašykite, aptarsime galimybes</p>
+                        </div>
+                        <div class="pt-4">
+                            <button onclick="scrollToSection('contact')" class="btn-pill px-8 bg-primary text-white hover:bg-primary/90 transition-all duration-300 font-bold tracking-wide shadow-lg hover:shadow-xl mx-auto" data-t="hero.cta">Susisiekite</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-border/50">
+                    <div class="grid md:grid-cols-2">
+                        <div class="p-12 bg-beige/30 flex flex-col justify-between">
+                            <div class="space-y-6">
+                                <h2 class="text-4xl font-serif font-bold text-primary italic" data-t="contact.title">Susisiekime</h2>
+                                <div class="h-1 w-20 bg-terracotta"></div>
+                                <p class="text-muted-foreground leading-relaxed" data-t="contact.intro">Pasidalinkite savo idėjomis ir mes kartu sukursime nepamirštamą patirtį.</p>
+                                </div>
+                                <div class="space-y-4 pt-12">
+                                <p class="text-sm font-bold uppercase tracking-widest text-primary" data-t="contact.email_label">Email</p>
+                                <p class="text-lg">getmealdeal@gmail.com</p>
+                                <p class="text-sm font-bold uppercase tracking-widest text-primary pt-4" data-t="contact.location_label">Vieta</p>
+                                <p class="text-lg" data-t="contact.location_text">Dirbame visoje Lietuvoje</p>
+                                </div>
+                        </div>
+                        <div class="p-12">
+                            <div id="contact-success" class="hidden h-full flex flex-col items-center justify-center text-center space-y-4 animate-in fade-in zoom-in">
+                                <div>
+                                    <h3 class="text-2xl font-serif font-bold text-primary mb-2">Ačiū! / Thank you!</h3>
+                                    <p class="text-muted-foreground">Susisieksime artimiausiu metu.</p>
+                                </div>
+                            </div>
+                            <form id="contact-form" class="space-y-6">
+                                <div id="contact-error" class="hidden p-3 bg-destructive/10 text-destructive text-sm rounded-lg border border-destructive/20"></div>
+                                
+                                <div class="space-y-2">
+                                    <label for="name" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.name">Vardas</label>
+                                    <input type="text" id="name" name="name" required class="border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="email" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.email">El. paštas</label>
+                                    <input type="email" id="email" name="email" required class="border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent">
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="type" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.eventType">Renginio tipas</label>
+                                        <input type="text" id="type" name="type" class="border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label for="date" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.date">Data</label>
+                                        <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" class="border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="message" class="text-sm leading-none font-medium select-none text-xs uppercase tracking-widest font-bold text-muted-foreground" data-t="contact.message">Žinutė</label>
+                                    <textarea id="message" name="message" required class="border-input min-h-[100px] w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] md:text-sm border-0 border-b border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary transition-all bg-transparent resize-none"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn-pill w-full bg-primary hover:bg-olive text-white text-lg font-bold uppercase tracking-widest transition-all">
+                                    <span data-t="contact.submit">Siųsti</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-border">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+                <!-- Social Icons Left -->
+                <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
+                    <a href="https://www.instagram.com/mealdeal_lt?igsh=OHBqaDd3amttb24%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="flex items-center group transition-all">
+                        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] shadow-lg group-hover:scale-110 transition-all">
+                            <img src="images/instagram.svg" alt="Instagram" class="w-6 h-6">
+                        </div>
+                        <span class="ml-3 text-sm font-bold uppercase tracking-widest text-primary group-hover:text-terracotta transition-colors" data-t="footer.instagram">Mūsų Instagram</span>
+                    </a>
+                    <a href="https://wa.me/37062336701" target="_blank" rel="noopener noreferrer" class="flex items-center group transition-all">
+                        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-[#25D366] shadow-lg group-hover:scale-110 transition-all">
+                            <img src="images/whatsapp.svg" alt="WhatsApp" class="w-6 h-6">
+                        </div>
+                        <span class="ml-3 text-sm font-bold uppercase tracking-widest text-primary group-hover:text-terracotta transition-colors" data-t="footer.whatsapp">Mūsų WhatsApp</span>
+                    </a>
+                </div>
+                </div>
+
+                <!-- Copyright Right -->
+                <div class="text-sm text-muted-foreground font-medium uppercase tracking-widest">
+                    © <span id="current-year">2025</span> MEALDEAL. <span data-t="footer.rights">Visos teisės saugomos.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
