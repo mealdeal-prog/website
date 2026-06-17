@@ -104,6 +104,7 @@ let currentLanguage = 'LT';
 function setLanguage(lang) {
     currentLanguage = lang;
     document.documentElement.lang = lang.toLowerCase();
+    localStorage.setItem('mealdeal_lang', lang);
     
     // Update text content
     document.querySelectorAll('[data-t]').forEach(el => {
@@ -271,4 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     portfolioItems.forEach(item => portfolioObserver.observe(item));
+});
+rver.observe(item));
 });
