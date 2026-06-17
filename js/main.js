@@ -44,8 +44,8 @@ const translations = {
         "contact.message": "Žinutė",
         "contact.submit": "Siųsti",
         "footer.rights": "Visos teisės saugomos.",
-        "footer.instagram": "Mūsų Instagram",
-        "footer.whatsapp": "Mūsų WhatsApp",
+        "footer.instagram": "Instagram",
+        "footer.whatsapp": "WhatsApp",
         "pricing.perPerson": "Nuo 25€ / asmeniui",
         "pricing.minOrder": "Minimalus užsakymas: 10 žmonių",
         "pricing.smallerGroup": "Jei jūsų grupė mažesnė – parašykite, aptarsime galimybes"
@@ -95,8 +95,8 @@ const translations = {
         "contact.message": "Message",
         "contact.submit": "Send",
         "footer.rights": "All rights reserved.",
-        "footer.instagram": "Our Instagram",
-        "footer.whatsapp": "Our WhatsApp",
+        "footer.instagram": "Instagram",
+        "footer.whatsapp": "WhatsApp",
         "pricing.perPerson": "From 25€ / per person",
         "pricing.minOrder": "Minimum order: 10 people",
         "pricing.smallerGroup": "If your group is smaller – write, we'll discuss options"
